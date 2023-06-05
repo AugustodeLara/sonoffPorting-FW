@@ -27,12 +27,13 @@ WiFiUDP udpDebug;
 
 void debugSend(const char * format, ...) {
 
-/*
+
     char buffer[DEBUG_MESSAGE_MAX_LENGTH+1];
 
     va_list args;
     va_start(args, format);
-    int len = ets_nprintf(buffer, DEBUG_MESSAGE_MAX_LENGTH, format, args);
+    //int len = ets_nprintf(buffer, DEBUG_MESSAGE_MAX_LENGTH, format, args);
+    int len = 15; // XXXXXXXX
     va_end(args);
 
     #if DEBUG_SERIAL_SUPPORT
@@ -57,12 +58,12 @@ void debugSend(const char * format, ...) {
     #if DEBUG_TELNET_SUPPORT
         _telnetWrite(buffer, strlen(buffer));
     #endif
-    */
+    
 
 }
 
 void debugSend_P(PGM_P format, ...) {
-    /*
+    
 
     char f[DEBUG_MESSAGE_MAX_LENGTH+1];
     memcpy_P(f, format, DEBUG_MESSAGE_MAX_LENGTH);
@@ -71,7 +72,8 @@ void debugSend_P(PGM_P format, ...) {
 
     va_list args;
     va_start(args, format);
-    int len = ets_vsnprintf(buffer, DEBUG_MESSAGE_MAX_LENGTH, f, args);
+    //int len = ets_vsnprintf(buffer, DEBUG_MESSAGE_MAX_LENGTH, f, args);
+    int len = 15; // XXXXXXXXXXXXX
     va_end(args);
 
     #if DEBUG_SERIAL_SUPPORT
@@ -96,7 +98,7 @@ void debugSend_P(PGM_P format, ...) {
     #if DEBUG_TELNET_SUPPORT
         _telnetWrite(buffer, strlen(buffer));
     #endif
-    */
+    
 
 }
 
@@ -151,7 +153,7 @@ extern "C" void custom_crash_callback(struct rst_info * rst_info, uint32_t stack
     EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_CRASH_TIME, crash_time);
 
     // write reset info to EEPROM
-    //EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_RESTART_REASON, rst_info->reason); XXXXXXXXXXXXXXX
+    //EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_RESTART_REASON, rst_info->reason); //XXXXXXXXXXXXXXX
     //EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EXCEPTION_CAUSE, rst_info->exccause); XXXXXXXXXXXXXXX
 
     // write epc1, epc2, epc3, excvaddr and depc to EEPROM

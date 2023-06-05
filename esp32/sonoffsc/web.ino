@@ -11,6 +11,7 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 #include </home/aglara/.platformio/packages/framework-arduinoespressif8266/libraries/Hash/src/Hash.h>
+//#include <Hash.h>
 #include <FS.h>
 #include <AsyncJson.h>
 #include <ArduinoJson.h>
