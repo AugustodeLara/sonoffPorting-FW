@@ -1,63 +1,60 @@
-// ArduinoJson - https://arduinojson.org
-// Copyright © 2014-2023, Benoit BLANCHON
+// ArduinoJson - arduinojson.org
+// Copyright Benoit Blanchon 2014-2018
 // MIT License
 //
 // This example shows the different ways you can use String with ArduinoJson.
 //
 // Use String objects sparingly, because ArduinoJson duplicates them in the
-// JsonDocument. Prefer plain old char[], as they are more efficient in term of
+// JsonBuffer. Prefer plain old char[], as they are more efficient in term of
 // code size, speed, and memory usage.
-//
-// https://arduinojson.org/v6/example/string/
 
 #include <ArduinoJson.h>
 
 void setup() {
-  DynamicJsonDocument doc(1024);
+  DynamicJsonBuffer jsonBuffer;
 
   // You can use a String as your JSON input.
-  // WARNING: the string in the input  will be duplicated in the JsonDocument.
+  // WARNING: the content of the String will be duplicated in the JsonBuffer.
   String input =
       "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
-  deserializeJson(doc, input);
+  JsonObject& root = jsonBuffer.parseObject(input);
 
-  // You can use a String as a key to get a member from JsonDocument
+  // You can use a String to get an element of a JsonObject
   // No duplication is done.
-  long time = doc[String("time")];
+  long time = root[String("time")];
 
-  // You can use a String as a key to set a member of a JsonDocument
-  // WARNING: the content of the String will be duplicated in the JsonDocument.
-  doc[String("time")] = time;
+  // You can use a String to set an element of a JsonObject
+  // WARNING: the content of the String will be duplicated in the JsonBuffer.
+  root[String("time")] = time;
 
-  // You can get the content of a JsonVariant as a String
-  // No duplication is done, at least not in the JsonDocument.
-  String sensor = doc["sensor"];
+  // You can get a String from a JsonObject or JsonArray:
+  // No duplication is done, at least not in the JsonBuffer.
+  String sensor = root["sensor"];
 
   // Unfortunately, the following doesn't work (issue #118):
-  // sensor = doc["sensor"]; // <-  error "ambiguous overload for 'operator='"
+  // sensor = root["sensor"]; // <-  error "ambiguous overload for 'operator='"
   // As a workaround, you need to replace by:
-  sensor = doc["sensor"].as<String>();
+  sensor = root["sensor"].as<String>();
 
-  // You can set a String as the content of a JsonVariant
-  // WARNING: the content of the String will be duplicated in the JsonDocument.
-  doc["sensor"] = sensor;
+  // You can set a String to a JsonObject or JsonArray:
+  // WARNING: the content of the String will be duplicated in the JsonBuffer.
+  root["sensor"] = sensor;
 
-  // It works with serialized() too:
-  doc["sensor"] = serialized(sensor);
+  // It works with RawJson too:
+  root["sensor"] = RawJson(sensor);
 
   // You can also concatenate strings
-  // WARNING: the content of the String will be duplicated in the JsonDocument.
-  doc[String("sen") + "sor"] = String("gp") + "s";
+  // WARNING: the content of the String will be duplicated in the JsonBuffer.
+  root[String("sen") + "sor"] = String("gp") + "s";
 
   // You can compare the content of a JsonObject with a String
-  if (doc["sensor"] == sensor) {
+  if (root["sensor"] == sensor) {
     // ...
   }
 
   // Lastly, you can print the resulting JSON to a String
-  // WARNING: it doesn't replace the content but appends to it
   String output;
-  serializeJson(doc, output);
+  root.printTo(output);
 }
 
 void loop() {

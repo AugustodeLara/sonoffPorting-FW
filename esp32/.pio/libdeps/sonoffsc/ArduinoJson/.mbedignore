@@ -1,4 +1,6 @@
-.devcontainer/
 .github/
 examples/
-extras/
+fuzzing/
+scripts/
+test/
+third-party/

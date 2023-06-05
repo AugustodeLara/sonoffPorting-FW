@@ -128,6 +128,7 @@
  /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash_counters.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_hw_support/include/soc/esp32/spiram.h \
+ .pio/libdeps/sonoffsc/FauxmoESP/src/fauxmoESP.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
@@ -188,8 +189,10 @@
  /home/aglara/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h \
- .pio/libdeps/sonoffsc/FauxmoESP/src/fauxmoESP.h \
  .pio/libdeps/sonoffsc/AsyncTCP@src-402f81c4be07b0ed32659b4b7ae40615/src/AsyncTCP.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/lwip/lwip/src/include/lwip/pbuf.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/lwip/lwip/src/include/lwip/err.h \
- /home/aglara/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_rom/include/esp_rom_md5.h \
+ .pio/libdeps/sonoffsc/FauxmoESP/src/templates.h

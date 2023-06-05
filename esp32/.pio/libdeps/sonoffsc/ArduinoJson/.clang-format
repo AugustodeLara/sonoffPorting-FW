@@ -1,12 +1,5 @@
 # http://clang.llvm.org/docs/ClangFormatStyleOptions.html
 
 BasedOnStyle: Google
-Standard: c++11
+Standard: Cpp03
 AllowShortFunctionsOnASingleLine: Empty
-IncludeBlocks: Preserve
-IndentPPDirectives: AfterHash
-DerivePointerAlignment: false
-
-# Always break after if to get accurate coverage
-AllowShortIfStatementsOnASingleLine: false
-AllowShortLoopsOnASingleLine: false
