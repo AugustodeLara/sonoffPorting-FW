@@ -8,9 +8,9 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 
 #if WEB_SUPPORT
 
-#include <ESPAsyncTCP.h>
+#include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
-#include <Hash.h>
+#include </home/aglara/.platformio/packages/framework-arduinoespressif8266/libraries/Hash/src/Hash.h>
 #include <FS.h>
 #include <AsyncJson.h>
 #include <ArduinoJson.h>
@@ -260,7 +260,7 @@ void _wsParse(uint32_t client_id, uint8_t * payload, size_t length) {
 void _wsStart(uint32_t client_id) {
 
     char chipid[7];
-    snprintf_P(chipid, sizeof(chipid), PSTR("%06X"), ESP.getChipId());
+    snprintf_P(chipid, sizeof(chipid), PSTR("%06X"), 00000); // XXXXXXX
 
     DynamicJsonBuffer jsonBuffer;
     JsonObject& root = jsonBuffer.createObject();

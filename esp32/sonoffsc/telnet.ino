@@ -10,7 +10,7 @@ Parts of the code have been borrowed from Thomas Sarlandie's NetServer
 
 #if TELNET_SUPPORT
 
-#include <ESPAsyncTCP.h>
+#include <AsyncTCP.h>
 
 AsyncServer * _telnetServer;
 AsyncClient * _telnetClients[TELNET_MAX_CLIENTS];

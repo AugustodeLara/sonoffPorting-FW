@@ -6,9 +6,13 @@ Copyright (C) 2016 by Xose Pérez <xose dot perez at gmail dot com>
 
 */
 
-#include "SerialLink.h"
+#include "SerialLink.h"   
+//#include "HardwareSerial.h"
 
-SerialLink link(Serial, false);
+
+SerialLink mySerialLink(Serial, false);
+
+
 
 const PROGMEM char at_hello[] = "AT+HELLO";
 const PROGMEM char at_push[] = "AT+PUSH";
@@ -138,15 +142,15 @@ bool commsSet(char * key, long value) {
 }
 
 bool send_P_repeat(const char * command, long payload, unsigned char tries = COMMS_DEFAULT_TRIES) {
-    link.clear();
+    mySerialLink.clear();
     while (tries--) {
         delay(50);
-        link.send_P(command, payload);
+        mySerialLink.send_P(command, payload);
     }
 }
 
 void commsConfigure() {
-    link.clear();
+    mySerialLink.clear();
     delay(200);
     send_P_repeat(at_every, getSetting("sensorEvery", SENSOR_EVERY).toInt());
     send_P_repeat(at_clap, getSetting("clapEnabled", SENSOR_CLAP_ENABLED).toInt() == 1 ? 1 : 0);
@@ -155,9 +159,9 @@ void commsConfigure() {
 
 void commsSetup() {
 
-    link.onGet(commsGet);
-    link.onSet(commsSet);
-    link.clear();
+    mySerialLink.onGet(commsGet);
+    mySerialLink.onSet(commsSet);
+    mySerialLink.clear();
     delay(200);
 
     // Set FAN mode depending on delay
@@ -167,5 +171,5 @@ void commsSetup() {
 }
 
 void commsLoop() {
-    link.handle();
+    mySerialLink.handle();
 }

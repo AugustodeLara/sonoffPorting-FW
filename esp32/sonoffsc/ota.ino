@@ -7,7 +7,7 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 */
 
 #include "ArduinoOTA.h"
-#include <ESP8266mDNS.h>
+#include <ESPmDNS.h>
 
 // -----------------------------------------------------------------------------
 // OTA

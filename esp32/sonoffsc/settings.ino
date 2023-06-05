@@ -8,7 +8,7 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 
 #include "Embedis.h"
 #include <EEPROM.h>
-#include "spi_flash.h"
+#include "esp32/rom/spi_flash.h"
 #include <StreamString.h>
 
 #if TELNET_SUPPORT

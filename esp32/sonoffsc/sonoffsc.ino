@@ -21,7 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <Arduino.h>
 #include <EEPROM.h>
 #include "config/all.h"
-#include "spi_flash.h"
+#include "esp32/rom/spi_flash.h"
+#include "HardwareSerial.h"
 
 // -----------------------------------------------------------------------------
 // METHODS
@@ -113,25 +114,25 @@ unsigned int sectors(size_t size) {
 
 void welcome() {
 
-    DEBUG_MSG_P(PSTR("\n\n"));
+    //DEBUG_MSG_P(PSTR("\n\n"));
     DEBUG_MSG_P(PSTR("[INIT] %s %s\n"), (char *) APP_NAME, (char *) APP_VERSION);
     DEBUG_MSG_P(PSTR("[INIT] %s\n"), (char *) APP_AUTHOR);
     DEBUG_MSG_P(PSTR("[INIT] %s\n\n"), (char *) APP_WEBSITE);
-    DEBUG_MSG_P(PSTR("[INIT] CPU chip ID: 0x%06X\n"), ESP.getChipId());
+    DEBUG_MSG_P(PSTR("[INIT] CPU chip ID: 0x%06X\n"), ESP.getEfuseMac());
     DEBUG_MSG_P(PSTR("[INIT] CPU frequency: %d MHz\n"), ESP.getCpuFreqMHz());
     DEBUG_MSG_P(PSTR("[INIT] SDK version: %s\n"), ESP.getSdkVersion());
-    DEBUG_MSG_P(PSTR("[INIT] Core version: %s\n"), ESP.getCoreVersion().c_str());
+    DEBUG_MSG_P(PSTR("[INIT] Core version: %s\n"), ESP.getSdkVersion());
     DEBUG_MSG_P(PSTR("\n"));
 
     // -------------------------------------------------------------------------
 
     FlashMode_t mode = ESP.getFlashChipMode();
-    DEBUG_MSG_P(PSTR("[INIT] Flash chip ID: 0x%06X\n"), ESP.getFlashChipId());
+    DEBUG_MSG_P(PSTR("[INIT] Flash chip ID: 0x%06X\n"), ESP.getChipCores()); // XXXXXXXXXXXX
     DEBUG_MSG_P(PSTR("[INIT] Flash speed: %u Hz\n"), ESP.getFlashChipSpeed());
     DEBUG_MSG_P(PSTR("[INIT] Flash mode: %s\n"), mode == FM_QIO ? "QIO" : mode == FM_QOUT ? "QOUT" : mode == FM_DIO ? "DIO" : mode == FM_DOUT ? "DOUT" : "UNKNOWN");
     DEBUG_MSG_P(PSTR("\n"));
     DEBUG_MSG_P(PSTR("[INIT] Flash sector size: %8u bytes\n"), SPI_FLASH_SEC_SIZE);
-    DEBUG_MSG_P(PSTR("[INIT] Flash size (CHIP): %8u bytes\n"), ESP.getFlashChipRealSize());
+    DEBUG_MSG_P(PSTR("[INIT] Flash size (CHIP): %8u bytes\n"), ESP.getFlashChipSize());
     DEBUG_MSG_P(PSTR("[INIT] Flash size (SDK):  %8u bytes / %4d sectors\n"), ESP.getFlashChipSize(), sectors(ESP.getFlashChipSize()));
     DEBUG_MSG_P(PSTR("[INIT] Firmware size:     %8u bytes / %4d sectors\n"), ESP.getSketchSize(), sectors(ESP.getSketchSize()));
     DEBUG_MSG_P(PSTR("[INIT] OTA size:          %8u bytes / %4d sectors\n"), ESP.getFreeSketchSpace(), sectors(ESP.getFreeSketchSpace()));
@@ -208,7 +209,7 @@ void welcome() {
         strcpy_P(buffer, custom_reset_string[custom_reset-1]);
         DEBUG_MSG_P(PSTR("[INIT] Last reset reason: %s\n"), buffer);
     } else {
-        DEBUG_MSG_P(PSTR("[INIT] Last reset reason: %s\n"), (char *) ESP.getResetReason().c_str());
+        DEBUG_MSG_P(PSTR("[INIT] Last reset reason: %s\n"), (char *) ESP.getChipCores());
     }
 
     DEBUG_MSG_P(PSTR("[INIT] Free heap: %u bytes\n"), ESP.getFreeHeap());

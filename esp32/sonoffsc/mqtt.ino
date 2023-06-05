@@ -6,8 +6,8 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 
 */
 
-#include <ESP8266WiFi.h>
-#include <ESP8266mDNS.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
 #include <ArduinoJson.h>
 #include <vector>
 #include <Ticker.h>

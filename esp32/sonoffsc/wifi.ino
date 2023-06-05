@@ -7,7 +7,7 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 */
 
 #include "JustWifi.h"
-#include <ESP8266mDNS.h>
+#include <ESPmDNS.h>
 
 // -----------------------------------------------------------------------------
 // WIFI
@@ -170,27 +170,27 @@ void wifiSetup() {
 		#ifdef DEBUG_PORT
 
 		    if (code == MESSAGE_SCANNING) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Scanning\n"));
+		        //DEBUG_MSG_P(PSTR("[WIFI] Scanning\n"));
 		    }
 
 		    if (code == MESSAGE_SCAN_FAILED) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Scan failed\n"));
+		       // DEBUG_MSG_P(PSTR("[WIFI] Scan failed\n"));
 		    }
 
 		    if (code == MESSAGE_NO_NETWORKS) {
-		        DEBUG_MSG_P(PSTR("[WIFI] No networks found\n"));
+		        //DEBUG_MSG_P(PSTR("[WIFI] No networks found\n"));
 		    }
 
 		    if (code == MESSAGE_NO_KNOWN_NETWORKS) {
-		        DEBUG_MSG_P(PSTR("[WIFI] No known networks found\n"));
+		        //DEBUG_MSG_P(PSTR("[WIFI] No known networks found\n"));
 		    }
 
 		    if (code == MESSAGE_FOUND_NETWORK) {
-		        DEBUG_MSG_P(PSTR("[WIFI] %s\n"), parameter);
+		        //DEBUG_MSG_P(PSTR("[WIFI] %s\n"), parameter);
 		    }
 
 		    if (code == MESSAGE_CONNECTING) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Connecting to %s\n"), parameter);
+		        //DEBUG_MSG_P(PSTR("[WIFI] Connecting to %s\n"), parameter);
 		    }
 
 		    if (code == MESSAGE_CONNECT_WAITING) {
@@ -198,7 +198,7 @@ void wifiSetup() {
 		    }
 
 		    if (code == MESSAGE_CONNECT_FAILED) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Could not connect to %s\n"), parameter);
+		        //DEBUG_MSG_P(PSTR("[WIFI] Could not connect to %s\n"), parameter);
 		    }
 
 		    if (code == MESSAGE_CONNECTED) {
@@ -210,15 +210,15 @@ void wifiSetup() {
 		    }
 
 		    if (code == MESSAGE_DISCONNECTED) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Disconnected\n"));
+		        D//EBUG_MSG_P(PSTR("[WIFI] Disconnected\n"));
 		    }
 
 		    if (code == MESSAGE_ACCESSPOINT_CREATING) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Creating access point\n"));
+		        //DEBUG_MSG_P(PSTR("[WIFI] Creating access point\n"));
 		    }
 
 		    if (code == MESSAGE_ACCESSPOINT_FAILED) {
-		        DEBUG_MSG_P(PSTR("[WIFI] Could not create access point\n"));
+		        //DEBUG_MSG_P(PSTR("[WIFI] Could not create access point\n"));
 		    }
 
 		#endif
@@ -235,7 +235,7 @@ void wifiSetup() {
 
                 if (MDNS.begin(WiFi.getMode() == WIFI_AP ? APP_NAME : (char *) WiFi.hostname().c_str())) {
 
-                    DEBUG_MSG_P(PSTR("[MDNS] OK\n"));
+                    //DEBUG_MSG_P(PSTR("[MDNS] OK\n"));
 
                     MDNS.addService("http", "tcp", getSetting("webPort", WEB_PORT).toInt());
                     #if TELNET_SUPPORT
@@ -246,7 +246,7 @@ void wifiSetup() {
 
     	        } else {
 
-    	            DEBUG_MSG_P(PSTR("[MDNS] FAIL\n"));
+    	          //  DEBUG_MSG_P(PSTR("[MDNS] FAIL\n"));
 
     	        }
 

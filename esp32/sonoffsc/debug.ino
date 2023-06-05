@@ -6,15 +6,19 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 
 */
 
+
+
 #if DEBUG_SUPPORT
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <EEPROM.h>
 
+
 extern "C" {
     #include "user_interface.h"
 }
+
 
 #if DEBUG_UDP_SUPPORT
 #include <WiFiUdp.h>
@@ -27,7 +31,7 @@ void debugSend(const char * format, ...) {
 
     va_list args;
     va_start(args, format);
-    int len = ets_vsnprintf(buffer, DEBUG_MESSAGE_MAX_LENGTH, format, args);
+    int len = ets_nprintf(buffer, DEBUG_MESSAGE_MAX_LENGTH, format, args);
     va_end(args);
 
     #if DEBUG_SERIAL_SUPPORT

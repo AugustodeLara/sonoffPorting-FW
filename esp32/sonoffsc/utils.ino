@@ -8,7 +8,7 @@ Copyright (C) 2017 by Xose Pérez <xose dot perez at gmail dot com>
 
 String getIdentifier() {
     char buffer[20];
-    snprintf_P(buffer, sizeof(buffer), PSTR("%s_%06X"), DEVICE_NAME, ESP.getChipId());
+    snprintf_P(buffer, sizeof(buffer), PSTR("%s_%06X"), DEVICE_NAME,10); /// XXXXXXXX
     return String(buffer);
 }
 
