@@ -16,7 +16,7 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 
 
 extern "C" {
-    #include "user_interface.h"
+   // #include "user_interface.h"
 }
 
 
@@ -27,6 +27,7 @@ WiFiUDP udpDebug;
 
 void debugSend(const char * format, ...) {
 
+/*
     char buffer[DEBUG_MESSAGE_MAX_LENGTH+1];
 
     va_list args;
@@ -56,10 +57,12 @@ void debugSend(const char * format, ...) {
     #if DEBUG_TELNET_SUPPORT
         _telnetWrite(buffer, strlen(buffer));
     #endif
+    */
 
 }
 
 void debugSend_P(PGM_P format, ...) {
+    /*
 
     char f[DEBUG_MESSAGE_MAX_LENGTH+1];
     memcpy_P(f, format, DEBUG_MESSAGE_MAX_LENGTH);
@@ -93,6 +96,7 @@ void debugSend_P(PGM_P format, ...) {
     #if DEBUG_TELNET_SUPPORT
         _telnetWrite(buffer, strlen(buffer));
     #endif
+    */
 
 }
 
@@ -147,15 +151,15 @@ extern "C" void custom_crash_callback(struct rst_info * rst_info, uint32_t stack
     EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_CRASH_TIME, crash_time);
 
     // write reset info to EEPROM
-    EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_RESTART_REASON, rst_info->reason);
-    EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EXCEPTION_CAUSE, rst_info->exccause);
+    //EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_RESTART_REASON, rst_info->reason); XXXXXXXXXXXXXXX
+    //EEPROM.write(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EXCEPTION_CAUSE, rst_info->exccause); XXXXXXXXXXXXXXX
 
     // write epc1, epc2, epc3, excvaddr and depc to EEPROM
-    EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EPC1, rst_info->epc1);
-    EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EPC2, rst_info->epc2);
-    EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EPC3, rst_info->epc3);
-    EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EXCVADDR, rst_info->excvaddr);
-    EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_DEPC, rst_info->depc);
+    //EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EPC1, rst_info->epc1); XXXXXXXXXXXXXXX
+    ///EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EPC2, rst_info->epc2); XXXXXXXXXXXXXXX
+    //EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EPC3, rst_info->epc3); XXXXXXXXXXXXXXX
+    //EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_EXCVADDR, rst_info->excvaddr); XXXXXXXXXXXXXXX
+    ///EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_DEPC, rst_info->depc); XXXXXXXXXXXXXXX
 
     // write stack start and end address to EEPROM
     EEPROM.put(SAVE_CRASH_EEPROM_OFFSET + SAVE_CRASH_STACK_START, stack_start);

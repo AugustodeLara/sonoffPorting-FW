@@ -834,13 +834,13 @@ void _onUpgrade(AsyncWebServerRequest *request) {
 
 void _onUpgradeData(AsyncWebServerRequest *request, String filename, size_t index, uint8_t *data, size_t len, bool final) {
     if (!index) {
-        DEBUG_MSG_P(PSTR("[UPGRADE] Start: %s\n"), filename.c_str());
-        Update.runAsync(true);
-        if (!Update.begin((ESP.getFreeSketchSpace() - 0x1000) & 0xFFFFF000)) {
-            #ifdef DEBUG_PORT
-                Update.printError(DEBUG_PORT);
-            #endif
-        }
+        /// DEBUG_MSG_P(PSTR("[UPGRADE] Start: %s\n"), filename.c_str()); XXXXXXX
+       // Update.runAsync(true);
+       // if (!Update.begin((ESP.getFreeSketchSpace() - 0x1000) & 0xFFFFF000)) {
+       //     #ifdef DEBUG_PORT
+       //         Update.printError(DEBUG_PORT);
+       //     #endif
+       // }
     }
     if (!Update.hasError()) {
         if (Update.write(data, len) != len) {

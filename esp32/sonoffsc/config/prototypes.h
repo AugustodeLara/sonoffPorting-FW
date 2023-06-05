@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <NtpClientLib.h>
+#include <ESPNtpClient.h>
 #include <ESPAsyncWebServer.h>
 #include <AsyncMqttClient.h>
 #include <functional>

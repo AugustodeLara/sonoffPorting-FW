@@ -85,24 +85,27 @@ void wifiConfigure() {
 void wifiStatus() {
 
     if (WiFi.getMode() == WIFI_AP_STA) {
-        DEBUG_MSG_P(PSTR("[WIFI] MODE AP + STA --------------------------------\n"));
+        //DEBUG_MSG_P(PSTR("[WIFI] MODE AP + STA --------------------------------\n"));
     } else if (WiFi.getMode() == WIFI_AP) {
-        DEBUG_MSG_P(PSTR("[WIFI] MODE AP --------------------------------------\n"));
+        //DEBUG_MSG_P(PSTR("[WIFI] MODE AP --------------------------------------\n"));
     } else if (WiFi.getMode() == WIFI_STA) {
-        DEBUG_MSG_P(PSTR("[WIFI] MODE STA -------------------------------------\n"));
+        //DEBUG_MSG_P(PSTR("[WIFI] MODE STA -------------------------------------\n"));
     } else {
-        DEBUG_MSG_P(PSTR("[WIFI] MODE OFF -------------------------------------\n"));
-        DEBUG_MSG_P(PSTR("[WIFI] No connection\n"));
+        //DEBUG_MSG_P(PSTR("[WIFI] MODE OFF -------------------------------------\n"));
+        //DEBUG_MSG_P(PSTR("[WIFI] No connection\n"));
     }
 
     if ((WiFi.getMode() & WIFI_AP) == WIFI_AP) {
+        /*
         DEBUG_MSG_P(PSTR("[WIFI] SSID %s\n"), jw.getAPSSID().c_str());
         DEBUG_MSG_P(PSTR("[WIFI] PASS %s\n"), getSetting("adminPass", ADMIN_PASS).c_str());
         DEBUG_MSG_P(PSTR("[WIFI] IP   %s\n"), WiFi.softAPIP().toString().c_str());
         DEBUG_MSG_P(PSTR("[WIFI] MAC  %s\n"), WiFi.softAPmacAddress().c_str());
+        */
     }
 
     if ((WiFi.getMode() & WIFI_STA) == WIFI_STA) {
+        /*
         DEBUG_MSG_P(PSTR("[WIFI] SSID %s\n"), WiFi.SSID().c_str());
         DEBUG_MSG_P(PSTR("[WIFI] IP   %s\n"), WiFi.localIP().toString().c_str());
         DEBUG_MSG_P(PSTR("[WIFI] MAC  %s\n"), WiFi.macAddress().c_str());
@@ -110,9 +113,10 @@ void wifiStatus() {
         DEBUG_MSG_P(PSTR("[WIFI] DNS  %s\n"), WiFi.dnsIP().toString().c_str());
         DEBUG_MSG_P(PSTR("[WIFI] MASK %s\n"), WiFi.subnetMask().toString().c_str());
         DEBUG_MSG_P(PSTR("[WIFI] HOST %s\n"), WiFi.hostname().c_str());
+        */
     }
 
-    DEBUG_MSG_P(PSTR("[WIFI] ----------------------------------------------\n"));
+    //DEBUG_MSG_P(PSTR("[WIFI] ----------------------------------------------\n"));
 
 }
 
@@ -210,7 +214,7 @@ void wifiSetup() {
 		    }
 
 		    if (code == MESSAGE_DISCONNECTED) {
-		        D//EBUG_MSG_P(PSTR("[WIFI] Disconnected\n"));
+		        //DEBUG_MSG_P(PSTR("[WIFI] Disconnected\n"));
 		    }
 
 		    if (code == MESSAGE_ACCESSPOINT_CREATING) {
@@ -233,7 +237,8 @@ void wifiSetup() {
 
     	    if (code == MESSAGE_CONNECTED || code == MESSAGE_ACCESSPOINT_CREATED) {
 
-                if (MDNS.begin(WiFi.getMode() == WIFI_AP ? APP_NAME : (char *) WiFi.hostname().c_str())) {
+                if (MDNS.begin(WiFi.getMode() == WIFI_AP ? APP_NAME : WiFi.getHostname())) {
+
 
                     //DEBUG_MSG_P(PSTR("[MDNS] OK\n"));
 

@@ -153,9 +153,9 @@ void settingsSetup() {
 
     Embedis::command( F("ERASE.CONFIG"), [](Embedis* e) {
         e->response(Embedis::OK);
-        customReset(CUSTOM_RESET_TERMINAL);
-        ESP.eraseConfig();
-        *((int*) 0) = 0; // see https://github.com/esp8266/Arduino/issues/1494
+        //customReset(CUSTOM_RESET_TERMINAL); XXXXXXXX
+        //ESP.eraseConfig(); 
+        //*((int*) 0) = 0; // see https://github.com/esp8266/Arduino/issues/1494
     });
 
     #if NOFUSS_SUPPORT

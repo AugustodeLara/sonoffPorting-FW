@@ -9,7 +9,7 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 #if NTP_SUPPORT
 
 #include <TimeLib.h>
-#include <NtpClientLib.h>
+#include <ESPNtpClient.h>
 #include <WiFiClient.h>
 
 // -----------------------------------------------------------------------------
@@ -17,14 +17,14 @@ Copyright (C) 2016-2017 by Xose Pérez <xose dot perez at gmail dot com>
 // -----------------------------------------------------------------------------
 
 void ntpConnect() {
-    NTP.begin(
-        getSetting("ntpServer1", NTP_SERVER),
-        getSetting("ntpOffset", NTP_TIME_OFFSET).toInt(),
-        getSetting("ntpDST", NTP_DAY_LIGHT).toInt() == 1
-    );
-    if (getSetting("ntpServer2")) NTP.setNtpServerName(getSetting("ntpServer2"), 1);
-    if (getSetting("ntpServer3")) NTP.setNtpServerName(getSetting("ntpServer3"), 2);
-    NTP.setInterval(NTP_UPDATE_INTERVAL);
+    //NTP.begin(
+    //    getSetting("ntpServer1", NTP_SERVER),
+    //    getSetting("ntpOffset", NTP_TIME_OFFSET).toInt(),
+    //    getSetting("ntpDST", NTP_DAY_LIGHT).toInt() == 1
+    //);
+    //if (getSetting("ntpServer2")) NTP.setNtpServerName(getSetting("ntpServer2"), 1);
+    //if (getSetting("ntpServer3")) NTP.setNtpServerName(getSetting("ntpServer3"), 2);
+    //NTP.setInterval(NTP_UPDATE_INTERVAL);
 }
 
 bool ntpConnected() {
@@ -46,6 +46,7 @@ String ntpDateTime() {
 }
 
 void ntpSetup() {
+    /*
     NTP.onNTPSyncEvent([](NTPSyncEvent_t error) {
         if (error) {
             if (error == noResponse) {
@@ -63,6 +64,7 @@ void ntpSetup() {
             #endif
         }
     });
+    */
 }
 
 void ntpLoop() {
