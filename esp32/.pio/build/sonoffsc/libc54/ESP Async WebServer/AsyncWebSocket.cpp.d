@@ -198,4 +198,12 @@
  .pio/libdeps/sonoffsc/ESP\ Async\ WebServer/src/WebHandlerImpl.h \
  .pio/libdeps/sonoffsc/ESP\ Async\ WebServer/src/AsyncEventSource.h \
  .pio/libdeps/sonoffsc/ESP\ Async\ WebServer/src/AsyncWebSynchronization.h \
- /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/libb64/cencode.h
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/libb64/cencode.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/mbedtls/include/mbedtls/sha1.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/port/include/mbedtls/esp_config.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/mbedtls/include/mbedtls/config.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/mbedtls/include/mbedtls/check_config.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/port/include/esp_mem.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/port/include/sha1_alt.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/sha_types.h \
+ /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_rom/include/esp32/rom/sha.h
