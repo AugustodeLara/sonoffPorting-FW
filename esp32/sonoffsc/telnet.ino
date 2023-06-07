@@ -131,7 +131,7 @@ void telnetSetup() {
     _telnetServer->onClient([](void *s, AsyncClient* c) {
         _telnetNewClient(c);
     }, 0);
-    _telnetServer->begin();
+    //_telnetServer->begin();
 
     DEBUG_MSG_P(PSTR("[TELNET] Listening on port %d\n"), TELNET_PORT);
 

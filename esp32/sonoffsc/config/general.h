@@ -12,7 +12,7 @@
 //------------------------------------------------------------------------------
 
 #ifndef TELNET_SUPPORT
-#define TELNET_SUPPORT          1               // Enable telnet support by default
+#define TELNET_SUPPORT          0               // Enable telnet support by default
 #endif
 
 #ifndef TELNET_ONLY_AP
@@ -29,7 +29,7 @@
 // Serial debug log
 
 #ifndef DEBUG_SERIAL_SUPPORT
-#define DEBUG_SERIAL_SUPPORT    0               // Do not enable serial debug log
+#define DEBUG_SERIAL_SUPPORT    1               // Do not enable serial debug log
 #endif
 #ifndef DEBUG_PORT
 #define DEBUG_PORT              Serial          // Default debugging port

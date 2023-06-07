@@ -346,7 +346,6 @@
  /home/aglara/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_rom/include/esp_rom_md5.h \
  .pio/libdeps/sonoffsc/Embedis/src/Embedis.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif32/cores/esp32/StreamString.h \
- sonoffsc/settings.h \
  /home/aglara/.platformio/packages/framework-arduinoespressif8266/libraries/Hash/src/Hash.h \
  .pio/libdeps/sonoffsc/ESP\ Async\ WebServer/src/AsyncJson.h \
  sonoffsc/static/index.html.gz.h \

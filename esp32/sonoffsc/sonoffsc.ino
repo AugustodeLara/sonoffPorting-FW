@@ -241,9 +241,9 @@ void setup() {
     }
 
     wifiSetup();
-    otaSetup();
+    //otaSetup();
     #if TELNET_SUPPORT
-        telnetSetup();
+        //telnetSetup();
     #endif
 
     // Do not run the next services if system is flagged stable
@@ -251,7 +251,7 @@ void setup() {
 
     buttonSetup();
     mqttSetup();
-    webSetup();
+    //webSetup(); XXXXXXXXX
     commsSetup();
     lightsSetup();
 
